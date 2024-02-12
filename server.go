@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"time"
 
 	"dataentry/router"
 	"dataentry/utility"
@@ -45,6 +46,8 @@ func init() {
 	if err != nil {
 		panic(err)
 	}
+
+	utility.Db.SetConnMaxLifetime(time.Minute * 3)
 
 }
 
